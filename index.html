@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html> 
+
+<head>
+
+<meta charset="utf-8">
+<title>Auto GST Calculate</title>
+	
+</head>
+
+<body>
+
+
+<input type="hidden" name="mode" value="PinRequest" /> 
+<label class="w3-text-green"><b>Choose price</b></label>
+<select name="tot_pin_requested" onchange="calculateAmount(this.value)" required>
+		<option value="" disabled selected>Choose your option</option>
+		<option value="1000">1000</option>
+		<option value="2000">2000</option>
+		<option value="3000">3000</option>
+		<option value="4000">4000</option>
+		<option value="5000">5000</option>
+</select>
+
+<label><b>Total Amount after tax</b></label>
+<input class="w3-input w3-border" name="tot_amount" id="total_amount" type="text" readonly>
+
+
+<script>
+function calculateAmount(val)
+{ 
+	var price = val * 1;
+
+	/*display the result*/
+	var total_price = price+(price * 0.18);
+	var divobj      = document.getElementById('total_amount');
+	divobj.value    = total_price;
+}
+</script>
+<body>
+</html>
